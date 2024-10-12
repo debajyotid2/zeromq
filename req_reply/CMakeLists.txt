@@ -1,0 +1,7 @@
+foreach(exe server client)
+    get_filename_component(dirname ${CMAKE_CURRENT_SOURCE_DIR} NAME_WE)
+    set(curr_exe ${dirname}_${exe})
+    add_executable(${curr_exe} ${CMAKE_CURRENT_SOURCE_DIR}/${exe}.cpp)
+    target_include_directories(${curr_exe} PRIVATE ${ZMQ_INCLUDE_DIRS})
+    target_link_libraries(${curr_exe} PRIVATE ${ZMQ_LIBRARIES})
+endforeach()
